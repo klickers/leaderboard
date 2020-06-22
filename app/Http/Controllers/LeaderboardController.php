@@ -9,13 +9,15 @@ use Maatwebsite\Excel\Facades\Excel;
 class LeaderboardController extends Controller
 {
 
-    public function index() 
+    public function index()
     {
         $array = Leaderboard::importCSV(public_path('data/data.csv'));
-        
+
+        $values = array();
+
         return view('index', [
             'array' => $array,
         ]);
     }
-    
+
 }
