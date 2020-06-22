@@ -8,10 +8,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class Leaderboard extends Model
 {
-    public static function importCSV($path) 
+    public static function importCSV($path)
     {
         $array = Excel::toArray(new LeaderboardImport, $path);  // path to file
-        
+
         return $array;
     }
 }
