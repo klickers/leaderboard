@@ -41,6 +41,8 @@
 @php
     $count = 0;
     $rowclass = 'grey';
+    $rankCount = 1;
+    $currentPoints = $array[0][0]["total_points"];
 @endphp
 
 <div class="wrapper">
@@ -68,8 +70,8 @@
                 <th data-field="actions">Share</th> <!-- data-formatter="operateFormatter" data-events="operateEvents" -->
               </thead>
               <tbody>
-                @foreach($array as $arra)
-                    @foreach($arra as $arr)
+                @foreach($array[0] as $arr)
+                    @if($rankCount > 3)
                         <tr>
                             <td>{{ $arr["full_name"] }}</td>
                             <td>{{ $arr["username"] }}</td>
@@ -81,7 +83,53 @@
                                 </a>
                             </td>
                         </tr>
-                    @endforeach
+                    @elseif($rankCount == 3 && $currentPoints == $arr["total_points"])
+                        <tr class = "bronze">
+                            <td>{{ $arr["full_name"] }}</td>
+                            <td>{{ $arr["username"] }}</td>
+                            <td>{{ $arr["email"] }}</td>
+                            <td>{{ $arr["total_points"] }}</td>
+                            <td>
+                                <a rel="tooltip" title="Share" href='{{ url("/" . $arr["username"]) }}' title="Share">
+                                    <i class="fa fa-share-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @elseif($rankCount == 2 && $currentPoints == $arr["total_points"])
+                        <tr class = "silver">
+                            <td>{{ $arr["full_name"] }}</td>
+                            <td>{{ $arr["username"] }}</td>
+                            <td>{{ $arr["email"] }}</td>
+                            <td>{{ $arr["total_points"] }}</td>
+                            <td>
+                                <a rel="tooltip" title="Share" href='{{ url("/" . $arr["username"]) }}' title="Share">
+                                    <i class="fa fa-share-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @elseif($rankCount == 1 && $currentPoints == $arr["total_points"])
+                        <tr class = "gold">
+                            <td>{{ $arr["full_name"] }}</td>
+                            <td>{{ $arr["username"] }}</td>
+                            <td>{{ $arr["email"] }}</td>
+                            <td>{{ $arr["total_points"] }}</td>
+                            <td>
+                                <a rel="tooltip" title="Share" href='{{ url("/" . $arr["username"]) }}' title="Share">
+                                    <i class="fa fa-share-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        @php
+                            
+                        @endphp
+                    @endif
+                    @php
+                        if ($currentPoints > $arr["total_points"] && $rankCount < 4)
+                        {
+                            $rankCount += 1;
+                        }
+                        $currentPoints = $arr["total_points"];
+                    @endphp
                 @endforeach
               </tbody>
             </table>
@@ -92,3 +140,13 @@
         </div>
       </div>
 </div>
+
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        $(tr).addClass('cala');
+    });
+</script>
+@endsection

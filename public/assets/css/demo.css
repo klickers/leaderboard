@@ -482,3 +482,14 @@ h1 small{
         margin-top: 130px;
     }
 }
+
+
+.gold, .gold:hover {
+    background-color: #FFDF00;
+}
+.silver {
+    background-color: #C0C0C0;
+}
+.bronze {
+    background-color: #cd7f32;
+}

@@ -30,7 +30,6 @@
 
         @yield('content')
 
-        @yield('scripts')
         <!--===============================================================================================-->
         <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
         <!--===============================================================================================-->
@@ -93,6 +92,8 @@
             sortable: true,
             pageSize: 10,
             pageList: [10, 25, 50, 100],
+              
+            rememberOrder: true,
 
             formatShowingRows: function (pageFrom, pageTo, totalRows) {
               return ''
@@ -162,4 +163,5 @@
         ga('send', 'pageview')
 
       </script>
+    @yield('scripts')
 </html>
