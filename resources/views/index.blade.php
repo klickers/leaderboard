@@ -49,6 +49,8 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="description">
+              <h1>HNG Leaderboard</h1>
+              <p><a href = "https://github.com/klickers/leaderboard" target = "_blank">Github</a> | <a href = "https://lucid.blog/solar4ars_1/post/hng-leaderboard-9d2" target = "_blank">Lucid Post</a></p>
           </div>
 
           <div class="fresh-table  toolbar-color-azure">
@@ -60,7 +62,7 @@
             <table id="fresh-table" class="table">
               <thead>
                 <th data-field="full_name" data-sortable="true">Name</th>
-                <th data-field="username" data-sortable="true">username</th>
+                <th data-field="username" data-sortable="true">Username</th>
                 <th data-field="email" data-sortable="true">Email</th>
                 <th data-field="total_points" data-sortable="true">Total Points</th>
                 <th data-field="actions">Share</th> <!-- data-formatter="operateFormatter" data-events="operateEvents" -->
@@ -74,13 +76,6 @@
                             <td>{{ $arr["email"] }}</td>
                             <td>{{ $arr["total_points"] }}</td>
                             <td>
-                                <form method = "POST" action = '{{ url("/record/" . $arr["username"]) }}'>
-                                    @csrf
-                                    <input type = "hidden" name = "full_name" value = "{{ $arr['full_name'] }}" />
-                                    <input type = "hidden" name = "email" value = "{{ $arr['email'] }}" />
-                                    <input type = "hidden" name = "total_points" value = "{{ $arr['total_points'] }}" />
-                                    <button type = "submit"><i class = "fa fa-share-alt"></i></button>
-                                </form>
                                 <a rel="tooltip" title="Share" href='{{ url("/" . $arr["username"]) }}' title="Share">
                                     <i class="fa fa-share-alt"></i>
                                 </a>

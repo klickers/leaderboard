@@ -47,6 +47,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="description">
+              <a href = "{{ url('/') }}"><i class = "fa fa-long-arrow-alt-left"></i> &nbsp;Back</a>
           </div>
 
           <div class="fresh-table  toolbar-color-azure">
@@ -57,8 +58,8 @@
               
               <table class = "table">
                   <thead>
-                      <th></th>
-                      <th></th>
+                      <th>Field</th>
+                      <th>Value</th>
                   </thead>
                   <tbody>
                       <tr>
