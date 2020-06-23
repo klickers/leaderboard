@@ -164,4 +164,10 @@
 
       </script>
     @yield('scripts')
+    
+    <style>
+        .st-btn[data-network="email"] {
+            display: none !important;
+        }
+    </style>
 </html>
