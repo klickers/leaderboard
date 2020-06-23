@@ -50,7 +50,7 @@
         <div class="col-md-8 col-md-offset-2">
           <div class="description">
               <h1>HNG Leaderboard</h1>
-              <p><a href = "https://github.com/klickers/leaderboard" target = "_blank">Github</a> | <a href = "https://lucid.blog/solar4ars_1/post/hng-leaderboard-9d2" target = "_blank">Lucid Post</a></p>
+              <p><a href = "https://github.com/klickers/leaderboard" target = "_blank"><i class = "fab fa-github"></i> &nbsp;Github</a>&nbsp; | &nbsp;<a href = "https://lucid.blog/solar4ars_1/post/hng-leaderboard-9d2" target = "_blank"><i class = "fa fa-layer-group"></i> &nbsp;Lucid Post</a></p>
           </div>
 
           <div class="fresh-table  toolbar-color-azure">
