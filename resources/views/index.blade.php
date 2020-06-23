@@ -2,11 +2,45 @@
 
 @section('title', 'Home')
 
+@section('meta')
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="{{ env('APP_URL') }}"/>
+
+    <!--  Social tags    -->
+    <meta name="keywords" content="leaderboard, points, game">
+
+    <meta name="description" content="Look for my score on the leaderboard!">
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Leaderboard Results">
+    <meta itemprop="description" content="Look for my score on the leaderboard!">
+
+    <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg">
+    <!-- Twitter Card data -->
+
+    <!-- <meta name="twitter:card" content="product"> -->
+    <!-- <meta name="twitter:site" content="@creativetim"> -->
+    <meta name="twitter:title" content="Leaderboard Results">
+
+    <meta name="twitter:description" content="Look for my score on the leaderboard!">
+    <meta name="twitter:creator" content="@creativetim">
+    <meta name="twitter:image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg">
+    <meta name="twitter:data1" content="Leaderboard Results">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Leaderboard Results" />
+    <!-- <meta property="og:type" content="article" /> -->
+    <meta property="og:url" content="https://github.com/klickers/leaderboard" />
+    <meta property="og:image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg"/>
+    <meta property="og:description" content="Look for my score on the leaderboard!" />
+    <meta property="og:site_name" content="Leaderboard Results" />
+@endsection
+
 @section('content')
 
 @php
-$count = 0;
-$rowclass = 'grey';
+    $count = 0;
+    $rowclass = 'grey';
 @endphp
 
 <div class="wrapper">
@@ -29,20 +63,31 @@ $rowclass = 'grey';
                 <th data-field="username" data-sortable="true">username</th>
                 <th data-field="email" data-sortable="true">Email</th>
                 <th data-field="total_points" data-sortable="true">Total Points</th>
-                <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
+                <th data-field="actions">Share</th> <!-- data-formatter="operateFormatter" data-events="operateEvents" -->
               </thead>
               <tbody>
                 @foreach($array as $arra)
-                @foreach($arra as $arr)
-                    <tr>
-                    <td>{{ $arr["full_name"] }}</td>
-                    <td>{{ $arr["username"] }}</td>
-                    <td>{{ $arr["email"] }}</td>
-                    <td>{{ $arr["total_points"] }}</td>
-                    <td></td>
-                    </tr>
+                    @foreach($arra as $arr)
+                        <tr>
+                            <td>{{ $arr["full_name"] }}</td>
+                            <td>{{ $arr["username"] }}</td>
+                            <td>{{ $arr["email"] }}</td>
+                            <td>{{ $arr["total_points"] }}</td>
+                            <td>
+                                <form method = "POST" action = '{{ url("/record/" . $arr["username"]) }}'>
+                                    @csrf
+                                    <input type = "hidden" name = "full_name" value = "{{ $arr['full_name'] }}" />
+                                    <input type = "hidden" name = "email" value = "{{ $arr['email'] }}" />
+                                    <input type = "hidden" name = "total_points" value = "{{ $arr['total_points'] }}" />
+                                    <button type = "submit"><i class = "fa fa-share-alt"></i></button>
+                                </form>
+                                <a rel="tooltip" title="Share" href='{{ url("/" . $arr["username"]) }}' title="Share">
+                                    <i class="fa fa-share-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
                     @endforeach
-                    @endforeach
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -51,5 +96,4 @@ $rowclass = 'grey';
           </div>
         </div>
       </div>
-    </div>
-  </div>
+</div>

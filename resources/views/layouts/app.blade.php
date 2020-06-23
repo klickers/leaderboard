@@ -9,41 +9,7 @@
 
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 
-        <!-- Canonical SEO -->
-        <link rel="canonical" href="{{ env('APP_URL') }}"/>
-
-        <!--  Social tags    -->
-        <meta name="keywords" content="creative tim, html table, html css table, web table, freebie, free bootstrap table, bootstrap, css3 table, bootstrap table, fresh bootstrap table, frontend, modern table, responsive bootstrap table, responsive bootstrap table">
-
-        <meta name="description" content="Look for my score on the leaderboard!">
-
-        <!-- Schema.org markup for Google+ -->
-        <meta itemprop="name" content="Leaderboard Results">
-        <meta itemprop="description" content="Look for my score on the leaderboard!">
-
-        <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg">
-        <!-- Twitter Card data -->
-
-        <meta name="twitter:card" content="product">
-        <meta name="twitter:site" content="@creativetim">
-        <meta name="twitter:title" content="Leaderboard Results">
-
-        <meta name="twitter:description" content="Look for my score on the leaderboard!">
-        <meta name="twitter:creator" content="@creativetim">
-        <meta name="twitter:image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg">
-        <meta name="twitter:data1" content="Leaderboard Results">
-        <meta name="twitter:label1" content="Product Type">
-        <meta name="twitter:data2" content="Free">
-        <meta name="twitter:label2" content="Price">
-
-        <!-- Open Graph data -->
-        <meta property="og:title" content="Leaderboard Results" />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://wenzhixin.github.io/fresh-bootstrap-table/compact-table.html" />
-        <meta property="og:image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg"/>
-        <meta property="og:description" content="Look for my score on the leaderboard!" />
-        <meta property="og:site_name" content="Creative Tim" />
-
+        @yield('meta')
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
         <link href="assets/css/fresh-bootstrap-table.css" rel="stylesheet" />
@@ -57,6 +23,7 @@
         <script src="https://unpkg.com/bootstrap-table/dist/bootstrap-table.min.js"></script>
 
         <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ef0d551a922da001296fb0d&product=sticky-share-buttons&cms=website' async='async'></script>
+        
         @yield('head')
     </head>
     <body>
@@ -97,9 +64,9 @@
 
         function operateFormatter(value, row, index) {
           return [
-              '<a rel="tooltip" title="Share" class="table-action share" href="javascript:void(0)" title="Share">',
+             /* '<a rel="tooltip" title="Share" class="table-action share" href="javascript:void(0)" title="Share">',
                   '<i class="fa fa-share-alt"></i>',
-                '</a>'
+                '</a>'*/
             /*'<a rel="tooltip" title="Like" class="table-action like" href="javascript:void(0)" title="Like">',
               '<i class="fa fa-heart"></i>',
             '</a>',
@@ -124,8 +91,8 @@
             pagination: true,
             striped: true,
             sortable: true,
-            pageSize: 8,
-            pageList: [8, 10, 25, 50, 100],
+            pageSize: 10,
+            pageList: [10, 25, 50, 100],
 
             formatShowingRows: function (pageFrom, pageTo, totalRows) {
               return ''

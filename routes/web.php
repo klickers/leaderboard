@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'LeaderboardController@index');
+Route::get('/{username}', 'LeaderboardController@recordFromArray')->name('recordFromArray');
+Route::post('/record/{username}', 'LeaderboardController@record')->name('record');
