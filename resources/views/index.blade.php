@@ -63,6 +63,7 @@
 
             <table id="fresh-table" class="table">
               <thead>
+                <th data-field="rank" data-sortable="true">Rank</th>
                 <th data-field="full_name" data-sortable="true">Name</th>
                 <th data-field="username" data-sortable="true">Username</th>
                 <th data-field="email" data-sortable="true">Email</th>
@@ -71,8 +72,15 @@
               </thead>
               <tbody>
                 @foreach($array[0] as $arr)
+                    @php
+                        if ($rankCount > 3 && $currentPoints > $arr["total_points"])
+                        {
+                            $rankCount += 1;
+                        }
+                    @endphp
                     @if($rankCount > 3)
                         <tr>
+                            <td>{{ $rankCount }}</td>
                             <td>{{ $arr["full_name"] }}</td>
                             <td>{{ $arr["username"] }}</td>
                             <td>{{ $arr["email"] }}</td>
@@ -85,6 +93,7 @@
                         </tr>
                     @elseif($rankCount == 3 && $currentPoints == $arr["total_points"])
                         <tr class = "bronze">
+                            <td>{{ $rankCount }}</td>
                             <td>{{ $arr["full_name"] }}</td>
                             <td>{{ $arr["username"] }}</td>
                             <td>{{ $arr["email"] }}</td>
@@ -97,6 +106,7 @@
                         </tr>
                     @elseif($rankCount == 2 && $currentPoints == $arr["total_points"])
                         <tr class = "silver">
+                            <td>{{ $rankCount }}</td>
                             <td>{{ $arr["full_name"] }}</td>
                             <td>{{ $arr["username"] }}</td>
                             <td>{{ $arr["email"] }}</td>
@@ -109,6 +119,7 @@
                         </tr>
                     @elseif($rankCount == 1 && $currentPoints == $arr["total_points"])
                         <tr class = "gold">
+                            <td>{{ $rankCount }}</td>
                             <td>{{ $arr["full_name"] }}</td>
                             <td>{{ $arr["username"] }}</td>
                             <td>{{ $arr["email"] }}</td>
