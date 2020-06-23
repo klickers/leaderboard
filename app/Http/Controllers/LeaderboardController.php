@@ -27,8 +27,10 @@ class LeaderboardController extends Controller
         $email = '';
         $total_points = '';
         
+        $count = 0;
+        
         // From https://stackoverflow.com/questions/6661530/php-multidimensional-array-search-by-value
-        foreach ($array as $key => $val) {
+        foreach ($array[0] as $key => $val) {
             if ($array[0][$key]["username"] == $username)
             {
                 $full_name = $array[0][$key]["full_name"];
@@ -43,11 +45,12 @@ class LeaderboardController extends Controller
                     'total_points' => $total_points,
                 ]);
             }
+            $count += 1;
         }
         //return redirect('/');
         return view('record', [
             'array' => $array,
-            'key' => 3,
+            'count' => $count,
             'full_name' => $full_name,
             'username' => $username,
             'email' => $email,
