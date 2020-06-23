@@ -73,14 +73,15 @@
               <tbody>
                 @foreach($array[0] as $arr)
                     @php
-                        if ($rankCount > 3 && $currentPoints > $arr["total_points"])
-                        {
-                            $rankCount += 1;
-                        }
+                        //if ($arr[0] > 3 && $currentPoints > $arr["total_points"])
+                        //{
+                        //    $rankCount += 1;
+                        //}
+                        //array_unshift($arr, $rankCount);
                     @endphp
-                    @if($rankCount > 3)
+                    @if($arr[0] > 3)
                         <tr>
-                            <td>{{ $rankCount }}</td>
+                            <td>{{ $arr[0] }}</td>
                             <td>{{ $arr["full_name"] }}</td>
                             <td>{{ $arr["username"] }}</td>
                             <td>{{ $arr["email"] }}</td>
@@ -91,9 +92,9 @@
                                 </a>
                             </td>
                         </tr>
-                    @elseif($rankCount == 3 && $currentPoints == $arr["total_points"])
+                    @elseif($arr[0] == 3)
                         <tr class = "bronze">
-                            <td>{{ $rankCount }}</td>
+                            <td>{{ $arr[0] }}</td>
                             <td>{{ $arr["full_name"] }}</td>
                             <td>{{ $arr["username"] }}</td>
                             <td>{{ $arr["email"] }}</td>
@@ -104,9 +105,9 @@
                                 </a>
                             </td>
                         </tr>
-                    @elseif($rankCount == 2 && $currentPoints == $arr["total_points"])
+                    @elseif($arr[0] == 2)
                         <tr class = "silver">
-                            <td>{{ $rankCount }}</td>
+                            <td>{{ $arr[0] }}</td>
                             <td>{{ $arr["full_name"] }}</td>
                             <td>{{ $arr["username"] }}</td>
                             <td>{{ $arr["email"] }}</td>
@@ -117,9 +118,9 @@
                                 </a>
                             </td>
                         </tr>
-                    @elseif($rankCount == 1 && $currentPoints == $arr["total_points"])
+                    @elseif($arr[0] == 1)
                         <tr class = "gold">
-                            <td>{{ $rankCount }}</td>
+                            <td>{{ $arr[0] }}</td>
                             <td>{{ $arr["full_name"] }}</td>
                             <td>{{ $arr["username"] }}</td>
                             <td>{{ $arr["email"] }}</td>
@@ -130,16 +131,13 @@
                                 </a>
                             </td>
                         </tr>
-                        @php
-                            
-                        @endphp
                     @endif
                     @php
-                        if ($currentPoints > $arr["total_points"] && $rankCount < 4)
-                        {
-                            $rankCount += 1;
-                        }
-                        $currentPoints = $arr["total_points"];
+                        //if ($currentPoints > $arr["total_points"] && $rankCount < 4)
+                        //{
+                        //    $rankCount += 1;
+                        //}
+                        //$currentPoints = $arr["total_points"];
                     @endphp
                 @endforeach
               </tbody>

@@ -13,10 +13,6 @@ class LeaderboardController extends Controller
     {
         $array = Leaderboard::importCSV(public_path('data/data.csv'));
         
-        usort($array[0], function($a, $b) {
-            return $b["total_points"] <=> $a["total_points"];
-        });
-        
         return view('index', [
             'array' => $array,
         ]);
@@ -27,6 +23,7 @@ class LeaderboardController extends Controller
     {
         $array = Leaderboard::importCSV(public_path('data/data.csv'));
         
+        $rank = 0;
         $full_name = '';
         $email = '';
         $total_points = '';
@@ -37,12 +34,14 @@ class LeaderboardController extends Controller
         foreach ($array[0] as $key => $val) {
             if ($array[0][$key]["username"] == $username)
             {
+                $rank = $array[0][$key][0];
                 $full_name = $array[0][$key]["full_name"];
                 $email = $array[0][$key]["email"];
                 $total_points = $array[0][$key]["total_points"];
                 return view('record', [
                     'array' => $array,
                     'key' => $key,
+                    'rank' => $rank,
                     'full_name' => $full_name,
                     'username' => $username,
                     'email' => $email,
@@ -55,6 +54,7 @@ class LeaderboardController extends Controller
         return view('record', [
             'array' => $array,
             'count' => $count,
+            'rank' => $rank,
             'full_name' => $full_name,
             'username' => $username,
             'email' => $email,

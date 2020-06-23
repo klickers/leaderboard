@@ -7,35 +7,35 @@
     <link rel="canonical" href="{{ env('APP_URL') }}"/>
 
     <!--  Social tags    -->
-    <meta name="keywords" content="{{ $full_name }}'s Leaderboard, scores, ranking">
+    <meta name="keywords" content="leaderboard, scores, ranking">
 
-    <meta name="description" content="Look for {{ $full_name }} ({{ $username }})'s score on the leaderboard!">
+    <meta name="description" content="Look for {{ $full_name }} ({{ $username }})'s awesome rank of {{ $rank }} on the leaderboard!">
 
     <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="{{ $full_name }}'s Leaderboard Results">
-    <meta itemprop="description" content="Look for {{ $full_name }} ({{ $username }})'s score on the leaderboard!">
+    <meta itemprop="name" content="{{ $full_name }}'s Leaderboard Results - Rank {{ $rank }}">
+    <meta itemprop="description" content="Look for {{ $full_name }} ({{ $username }})'s awesome rank of {{ $rank }} on the leaderboard!">
 
     <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg">
     <!-- Twitter Card data -->
 
     <!-- <meta name="twitter:card" content="product">
     <meta name="twitter:site" content="@creativetim"> -->
-    <meta name="twitter:title" content="{{ $full_name }}'s Leaderboard Results">
+    <meta name="twitter:title" content="{{ $full_name }}'s Leaderboard Results - Rank {{ $rank }}">
 
-    <meta name="twitter:description" content="Look for {{ $full_name }} ({{ $username }})'s score on the leaderboard!">
+    <meta name="twitter:description" content="Look for {{ $full_name }} ({{ $username }})'s awesome rank of {{ $rank }} on the leaderboard!">
     <!-- <meta name="twitter:creator" content="@creativetim"> -->
     <meta name="twitter:image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg">
-    <meta name="twitter:data1" content="{{ $full_name }}'s Leaderboard Results">
+    <meta name="twitter:data1" content="{{ $full_name }}'s Leaderboard Results - Rank {{ $rank }}">
     <!-- <meta name="twitter:label1" content="Product Type">
     <meta name="twitter:data2" content="Free">
     <meta name="twitter:label2" content="Price"> -->
 
     <!-- Open Graph data -->
-    <meta property="og:title" content="{{ $full_name }}'s Leaderboard Results" />
+    <meta property="og:title" content="{{ $full_name }}'s Leaderboard Results - Rank {{ $rank }}" />
     <!-- <meta property="og:type" content="article" /> -->
     <meta property="og:url" content="https://wenzhixin.github.io/fresh-bootstrap-table/compact-table.html" />
     <meta property="og:image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg"/>
-    <meta property="og:description" content="Look for {{ $full_name }} ({{ $username }})'s score on the leaderboard!" />
+    <meta property="og:description" content="Look for {{ $full_name }} ({{ $username }})'s awesome rank of {{ $rank }} on the leaderboard!" />
     <meta property="og:site_name" content="Creative Tim" />
 @endsection
 
@@ -61,7 +61,11 @@
                       <th>Field</th>
                       <th>Value</th>
                   </thead>
-                  <tbody>
+                  <tbody class = "@if($rank == 1) gold @elseif($rank == 2) silver @elseif($rank == 3) bronze @endif">
+                      <tr>
+                          <td>Rank</td>
+                          <td>{{ $rank }}</td>
+                      </tr>
                       <tr>
                           <td>Full Name</td>
                           <td>{{ $full_name ?? '' }}</td>
@@ -76,7 +80,7 @@
                       </tr>
                       <tr>
                           <td>Total Points</td>
-                          <td>{{ $total_points ?? '' }}</td>
+                          <td>{{ $total_points }}</td>
                       </tr>
                   </tbody>
               </table>
