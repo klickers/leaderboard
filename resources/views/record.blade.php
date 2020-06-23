@@ -12,29 +12,29 @@
     <meta name="description" content="Look for {{ $full_name }} ({{ $username }})'s awesome rank of {{ $rank }} on the leaderboard!">
 
     <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="{{ $full_name }}'s Leaderboard Results - Rank {{ $rank }}">
+    <meta itemprop="name" content="{{ $full_name }} {{ $username }}'s Leaderboard Results - Rank {{ $rank }}">
     <meta itemprop="description" content="Look for {{ $full_name }} ({{ $username }})'s awesome rank of {{ $rank }} on the leaderboard!">
 
-    <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg">
+    <meta itemprop="image" content="https://i.ibb.co/2jT9CpH/hngleaderboard.jpg">
     <!-- Twitter Card data -->
 
     <!-- <meta name="twitter:card" content="product">
     <meta name="twitter:site" content="@creativetim"> -->
-    <meta name="twitter:title" content="{{ $full_name }}'s Leaderboard Results - Rank {{ $rank }}">
+    <meta name="twitter:title" content="{{ $full_name }} {{ $username }}'s Leaderboard Results - Rank {{ $rank }}">
 
     <meta name="twitter:description" content="Look for {{ $full_name }} ({{ $username }})'s awesome rank of {{ $rank }} on the leaderboard!">
     <!-- <meta name="twitter:creator" content="@creativetim"> -->
-    <meta name="twitter:image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg">
-    <meta name="twitter:data1" content="{{ $full_name }}'s Leaderboard Results - Rank {{ $rank }}">
+    <meta name="twitter:image" content="https://i.ibb.co/2jT9CpH/hngleaderboard.jpg">
+    <meta name="twitter:data1" content="{{ $full_name }} {{ $username }}'s Leaderboard Results - Rank {{ $rank }}">
     <!-- <meta name="twitter:label1" content="Product Type">
     <meta name="twitter:data2" content="Free">
     <meta name="twitter:label2" content="Price"> -->
 
     <!-- Open Graph data -->
-    <meta property="og:title" content="{{ $full_name }}'s Leaderboard Results - Rank {{ $rank }}" />
+    <meta property="og:title" content="{{ $full_name }} {{ $username }}'s Leaderboard Results - Rank {{ $rank }}" />
     <!-- <meta property="og:type" content="article" /> -->
     <meta property="og:url" content="https://wenzhixin.github.io/fresh-bootstrap-table/compact-table.html" />
-    <meta property="og:image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg"/>
+    <meta property="og:image" content="https://i.ibb.co/2jT9CpH/hngleaderboard.jpg"/>
     <meta property="og:description" content="Look for {{ $full_name }} ({{ $username }})'s awesome rank of {{ $rank }} on the leaderboard!" />
     <meta property="og:site_name" content="Creative Tim" />
 @endsection

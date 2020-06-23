@@ -9,30 +9,30 @@
     <!--  Social tags    -->
     <meta name="keywords" content="leaderboard, points, game">
 
-    <meta name="description" content="Look for my score on the leaderboard!">
+    <meta name="description" content="Look up scores on the leaderboard!">
 
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="Leaderboard Results">
-    <meta itemprop="description" content="Look for my score on the leaderboard!">
+    <meta itemprop="description" content="Look up scores on the leaderboard!">
 
-    <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg">
+    <meta itemprop="image" content="https://i.ibb.co/2jT9CpH/hngleaderboard.jpg">
     <!-- Twitter Card data -->
 
     <!-- <meta name="twitter:card" content="product"> -->
     <!-- <meta name="twitter:site" content="@creativetim"> -->
     <meta name="twitter:title" content="Leaderboard Results">
 
-    <meta name="twitter:description" content="Look for my score on the leaderboard!">
-    <meta name="twitter:creator" content="@creativetim">
-    <meta name="twitter:image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg">
+    <meta name="twitter:description" content="Look up scores on the leaderboard!">
+    <!-- <meta name="twitter:creator" content="@creativetim"> -->
+    <meta name="twitter:image" content="https://i.ibb.co/2jT9CpH/hngleaderboard.jpg">
     <meta name="twitter:data1" content="Leaderboard Results">
 
     <!-- Open Graph data -->
     <meta property="og:title" content="Leaderboard Results" />
     <!-- <meta property="og:type" content="article" /> -->
     <meta property="og:url" content="https://github.com/klickers/leaderboard" />
-    <meta property="og:image" content="http://s3.amazonaws.com/creativetim_bucket/products/31/original/opt_fbt_thumbnail.jpg"/>
-    <meta property="og:description" content="Look for my score on the leaderboard!" />
+    <meta property="og:image" content="https://i.ibb.co/2jT9CpH/hngleaderboard.jpg"/>
+    <meta property="og:description" content="Look up scores on the leaderboard!" />
     <meta property="og:site_name" content="Leaderboard Results" />
 @endsection
 
