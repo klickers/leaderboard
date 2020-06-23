@@ -12,7 +12,11 @@ class LeaderboardController extends Controller
     public function index()
     {
         $array = Leaderboard::importCSV(public_path('data/data.csv'));
-
+        
+        usort($array[0], function($a, $b) {
+            return $b["total_points"] <=> $a["total_points"];
+        });
+        
         return view('index', [
             'array' => $array,
         ]);
